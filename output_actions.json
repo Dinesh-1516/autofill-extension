@@ -1,0 +1,108 @@
+{
+  "actions": [
+    {
+      "selector": "#fullName",
+      "action": "fill",
+      "value": "John Michael Doe",
+      "confidence": 0.95,
+      "reasoning": "Matched 'Full Name' to fullName"
+    },
+    {
+      "selector": "#email",
+      "action": "fill",
+      "value": "john.doe@example.com",
+      "confidence": 0.95,
+      "reasoning": "Matched 'Email' to email"
+    },
+    {
+      "selector": "#phone",
+      "action": "fill",
+      "value": "9331087882",
+      "confidence": 0.95,
+      "reasoning": "Matched 'Phone' to phone"
+    },
+    {
+      "selector": "#linkedin",
+      "action": "fill",
+      "value": "linkedin.com/in/johndoe",
+      "confidence": 0.95,
+      "reasoning": "Matched 'LinkedIn URL' to linkedin"
+    },
+    {
+      "selector": "#city",
+      "action": "fill",
+      "value": "Nagole",
+      "confidence": 0.9,
+      "reasoning": "Matched 'Current City' to address.city"
+    },
+    {
+      "selector": "[name=\"workAuth\"]",
+      "action": "radio_select",
+      "value": "Yes",
+      "confidence": 0.9,
+      "reasoning": "Matched 'Work Authorization in India?' to Work Authorization (assuming US based on details)"
+    },
+    {
+      "selector": "[name=\"relocation\"]",
+      "action": "radio_select",
+      "value": "No",
+      "confidence": 0.9,
+      "reasoning": "Matched 'Open to Relocation?' to reallocation"
+    },
+    {
+      "selector": "[name=\"skills\"]",
+      "action": "check_multiple",
+      "selectors": [
+        "[name=\"skills\"]",
+        "[name=\"skills\"]",
+        "[name=\"skills\"]",
+        "[name=\"skills\"]"
+      ],
+      "values": [
+        "JavaScript",
+        "Python",
+        "React",
+        "Node.js"
+      ],
+      "confidence": 0.95,
+      "reasoning": "Matched 'Key Skills' to skills"
+    },
+    {
+      "selector": "#resume",
+      "action": "upload_file",
+      "value": "Resume.pdf",
+      "fileType": "resume",
+      "confidence": 0.95,
+      "reasoning": "Matched 'Upload Resume' to resume/CV file"
+    },
+    {
+      "selector": "#github",
+      "action": "fill",
+      "value": "github.com/johndoe",
+      "confidence": 0.95,
+      "reasoning": "Matched 'GitHub Username' to github"
+    },
+    {
+      "selector": "#address",
+      "action": "fill",
+      "value": "AXBX BUILDING, 3rd floor Room no 389",
+      "confidence": 0.9,
+      "reasoning": "Matched 'Address Line' to address.streetAddress"
+    },
+    {
+      "selector": "#addressCity",
+      "action": "fill",
+      "value": "Nagole",
+      "confidence": 0.9,
+      "reasoning": "Matched 'City' to address.city"
+    },
+    {
+      "selector": "#coverLetter",
+      "action": "fill",
+      "value": "I am eager to contribute my skills in Java and Python to your team, as demonstrated in my resume. My background and enthusiasm align well with the requirements of this role, and I am confident I can make a significant contribution. I am available immediately.",
+      "confidence": 0.9,
+      "reasoning": "Generated descriptive text for 'Cover Letter'"
+    }
+  ],
+  "manual_fields": []
+}
