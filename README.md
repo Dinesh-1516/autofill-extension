@@ -1,46 +1,41 @@
-# Hire10X Extension Boilerplate
+# AI_chrome_extension_AUTO_FILLER
 
-This project provides a boilerplate for developing **Chrome Extensions** using **React** and **Vite**. It includes essential configurations, development tools, and a structure to streamline rapid development and easy deployment of a Chrome extension.
+This is the AI part of auto form filler in chrome extension .
+It gets the parsed HTML data in json format and uses it to build actions to fill the data and sends the actions back to chrome extension to eventually fill form accurately .
 
-## Key Features
 
-- **React 18**: Utilize the latest version of React for efficient UI development.
-- **Vite**: Super fast development server and bundler, optimized for performance.
-- **TypeScript**: Ensures type safety and reliability throughout the development process.
-- **ESLint**: Linting tool to enforce code standards and maintain quality.
-- **Tailwind CSS**: Utility-first CSS framework that enables rapid UI design.
-- **Chrome Extension API**: Integrated usage of Chrome's `runtime` API.
-- **CRXJS Vite Plugin**: Seamless integration for building Chrome extensions using Vite.
+## SETUP
 
-## Getting Started
+1. Clone the repository
+2. Install dependencies: pip install -r requirements.txt
+3. Set up environment variables:
+   - GEMINI_API_KEY: Your Gemini API key
+   - GEMINI_MODEL: The Gemini model to use (default: gemini-2.0-flash-lite)
+4. Run the API server: python api.py
+5. Test the API with the test client: python test_client.py
 
-### Prerequisites
+## API ENDPOINT
 
-Before starting, make sure you have the following tools installed on your system:
+# Example usage of the API in Python
+import requests
 
-- [Node.js](https://nodejs.org/en/download/) (version 16 or above)
-- [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) or [Yarn](https://classic.yarnpkg.com/en/docs/install/)
+response = requests.post(
+    "http://localhost:8000/autofill",
+    json={
+        "parsed_data": your_form_data,
+        "personal_details": user_details
+    }
+)
+actions = response.json()
 
-### Installation
 
-1. **Clone the repository:**
-
-    ```bash
-    git clone https://github.com/your-username/hire10x-linkdin-job-post.git
-    cd hire10x-linkdin-job-post
-    ```
-
-2. **Install the dependencies:**
-
-    ```bash
-    npm install
-    # or
-    yarn install
-    ```
-
-### Development
-
-To start the development server using Vite:
-
-```bash
-npm run dev
+# Example usage of the API in JavaScript
+const response = await fetch('http://localhost:8000/autofill', {
+  method: 'POST',
+  headers: {'Content-Type': 'application/json'},
+  body: JSON.stringify({
+    parsed_data: formData,
+    personal_details: userDetails
+  })
+});
+const actions = await response.json();
