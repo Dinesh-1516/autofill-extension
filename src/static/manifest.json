@@ -1,0 +1,74 @@
+{
+  "manifest_version": 3,
+  "name": "Career Pilot - Extension",
+  "version": "1.0.0",
+  "description": "Career Pilot – AI autofill platform and Lined in Scraping Tools ",
+  "action": {
+    "default_popup": "index.html",
+    "default_icon": {
+      "16": "src/static/tenx.png",
+      "32": "src/static/tenx.png",
+      "48": "src/static/tenx.png",
+      "128": "src/static/tenx.png"
+    }
+  },
+  "background": {
+    "service_worker": "src/background/background.ts",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["src/content/autofill-content.ts"],
+      "run_at": "document_idle"
+    }
+  ],
+  "permissions": [
+    "storage",
+    "tabs",
+    "activeTab",
+    "scripting",
+    "cookies",
+    "action",
+    "webRequest",
+    "webRequestBlocking"
+  ],
+  "host_permissions": [
+    "https://careerpilot.10xscale.ai/*",
+    "https://devserver.hire10x.ai/jd-service/gql",
+    "http://localhost:3000/*",
+    "http://localhost:5173/*",
+    "http://localhost:8070/*",
+    "https://www.linkedin.com/*",
+    "https://ai-jobs-9b4c6.web.app/*",
+    "http://dev.10xscale.ai/*",
+    "http://103.173.214.116:6080/*",
+    "https://storage.googleapis.com/*",
+    "<all_urls>"
+  ],
+  "externally_connectable": {
+    "matches": [
+      "http://localhost:3000/*",
+      "http://localhost:5173/*",
+      "https://careerpilot.10xscale.ai/*",
+      "https://rectuitaitest.web.app/*",
+      "https://devserver.hire10x.ai/*",
+      "https://app.hire10x.ai/*",
+      "https://demo.hire10x.ai/*",
+      "https://xscale-app.web.app/*",
+      "https://ai-jobs-9b4c6.web.app/*"
+    ]
+  },
+  "icons": {
+    "16": "src/static/tenx.png",
+    "32": "src/static/tenx.png",
+    "48": "src/static/tenx.png",
+    "128": "src/static/tenx.png"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["src/static/tenx.png", "src/static/Resume.pdf"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

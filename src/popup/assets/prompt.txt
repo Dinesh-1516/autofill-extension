@@ -1,0 +1,67 @@
+i will provide one scenario. i got confuced to implement that feature. 
+
+I have a extension TS vite React Manifest V3 . 
+
+
+i have array of values like, 
+
+const pref _jobs = ["pyt OR java", "Javascript OR React ", "Buisness OR Developer "]
+const pref_location_id = ["155526654"]
+const start_num = 0
+
+and some inbuild values are there for getting the Jobs. 
+
+this values need to pass inside one fn for making the API link, 
+based on the Link. 
+
+API FN :
+
+/**
+ * Builds a single LinkedIn Job API URL for a given keyword query, geoId, and page start.
+ * @param query - Keyword string with OR-separated terms.
+ * @param geoId - LinkedIn geoId for location filtering.
+ * @param start - Pagination index (e.g., 0, 25, 50...).
+ * @param count - Number of results per page (default 25).
+ * @param timePostedRange - Time filter for posting recency (default: last 7 days).
+ * @returns The constructed API URL as a string.
+ */
+export function buildJobUrnFetchUrlForPage({
+  query,
+  geoId = "103644278", // Default to "India"
+  start,
+  count = 25,
+  timePostedRange = "r604800",
+}: {
+  query: string;
+  geoId: string | number | null;
+  start: number;
+  count?: number;
+  timePostedRange?: string;
+}): string {
+  const baseUrl =
+    "https://www.linkedin.com/voyager/api/voyagerJobsDashJobCards";
+  const decorationId =
+    "com.linkedin.voyager.dash.deco.jobs.search.JobSearchCardsCollection-215";
+
+  // 🔥 Build raw query string with correct format (no encoding yet)
+  const encodedQuery = encodeURIComponent(query);
+
+  const rawQuery = `(origin:JOB_SEARCH_PAGE_JOB_FILTER,keywords:${encodedQuery},locationUnion:(geoId:${
+    geoId ? geoId : "103644278"
+  }),selectedFilters:(distance:List(25),timePostedRange:List(${timePostedRange}),sortBy:List(DD)),spellCorrectionEnabled:true)`;
+
+  // 🔒 Now encode the whole query string once
+
+  // ✅ Now build final URL
+  const finalUrl = `${baseUrl}?decorationId=${decorationId}&count=${count}&q=jobSearch&query=${rawQuery}&start=${start}`;
+
+  return finalUrl;
+}
+
+so, here I want This Query need to pass one by one , for example , 
+
+first "pyt OR java" going into using loop, once this query added then first GeoID need to add in the first URL and timePostedRange first value with one URL, 
+
+this First API need to call start num 0 -25 - 50 this is one API hit, then Second API , 0-0 the page like that page 40th need to increase page by page , but whenever 50 -100-150 lie this 50* meets need to get the response and make an API Call. 
+
+this is for tiemPosted 1st value and Time posted 2dn value flow, once these 2 times completed then start for 2nd Query like this this will be an automated one, need to fetch all the querys using loop. if the last query data all completed the start by first query again.

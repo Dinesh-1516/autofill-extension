@@ -1,0 +1,50 @@
+{
+  "../../../../@crx/manifest": {
+    "file": "assets/crx-manifest.js-D3fUMAbc.js",
+    "name": "crx-manifest.js",
+    "src": "../../../../@crx/manifest",
+    "isEntry": true
+  },
+  "_react-toastify.esm-zXEqVuLq.js": {
+    "file": "assets/react-toastify.esm-zXEqVuLq.js",
+    "name": "react-toastify.esm"
+  },
+  "autofill-content.ts-loader.js": {
+    "file": "assets/autofill-content.ts-loader-n86ehUpj.js",
+    "src": "autofill-content.ts-loader.js"
+  },
+  "index.html": {
+    "file": "src/popup/popup.js",
+    "name": "popup",
+    "src": "index.html",
+    "isEntry": true,
+    "imports": [
+      "_react-toastify.esm-zXEqVuLq.js"
+    ],
+    "css": [
+      "assets/popup-oKYUD0F3.css"
+    ],
+    "assets": [
+      "assets/10x Icon_Black-B1HhcGb6.png"
+    ]
+  },
+  "src/background/background.ts": {
+    "file": "src/background/background.js",
+    "name": "background",
+    "src": "src/background/background.ts",
+    "isEntry": true,
+    "imports": [
+      "_react-toastify.esm-zXEqVuLq.js"
+    ]
+  },
+  "src/content/autofill-content.ts": {
+    "file": "assets/autofill-content.ts-CdGQAE-D.js",
+    "name": "autofill-content.ts",
+    "src": "src/content/autofill-content.ts",
+    "isEntry": true
+  },
+  "src/popup/assets/10x Icon_Black.png": {
+    "file": "assets/10x Icon_Black-B1HhcGb6.png",
+    "src": "src/popup/assets/10x Icon_Black.png"
+  }
+}
